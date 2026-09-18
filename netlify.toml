@@ -1,0 +1,3 @@
+# Deployed by Netlify on every push to master (static site, no build step).
+[build]
+  publish = "."
