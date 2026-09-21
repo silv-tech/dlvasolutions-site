@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Leif Soliva - Resume</title>
+<meta name="author" content="Leif Soliva">
+<!--
+  Source for resume.pdf. Edit this file, then regenerate the PDF with:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+    --no-pdf-header-footer --print-to-pdf=resume.pdf resume-source.html
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: letter; margin: 0.5in 0.75in 0.55in 0.75in; }
+  :root { --teal: #1a5f7a; --text: #1a1a1a; --grey: #555555; --rule: #cfcfcf; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: 'Carlito', Calibri, sans-serif; font-size: 10pt; line-height: 1.27; color: var(--text); }
+  a { color: var(--teal); }
+  .header { text-align: center; padding-bottom: 9pt; border-bottom: 1.5pt solid var(--teal); margin-bottom: 11pt; }
+  .name { font-size: 20pt; font-weight: 700; letter-spacing: 1.8pt; line-height: 1.1; margin: 0 0 3pt; }
+  .title { font-size: 10.5pt; color: var(--teal); letter-spacing: 0.5pt; margin-bottom: 4pt; }
+  .contact { font-size: 9.5pt; color: var(--grey); line-height: 1.45; }
+  .sep { margin: 0 6pt; color: var(--grey); }
+  h2 { font-size: 10.5pt; font-weight: 700; color: var(--teal); letter-spacing: 0.9pt; text-transform: uppercase; margin: 10pt 0 5pt; padding-bottom: 2pt; border-bottom: 0.75pt solid var(--rule); break-after: avoid; }
+  p { margin: 0; }
+  ul { margin: 1pt 0 0; padding-left: 18pt; }
+  li { margin: 0 0 0.6pt; }
+  .skills p { margin-bottom: 2pt; }
+  .label { font-weight: 700; color: var(--teal); }
+  .job { margin-bottom: 7pt; }
+  .role { break-after: avoid; }
+  li { break-inside: avoid; }
+  .role { display: flex; justify-content: space-between; align-items: baseline; }
+  .role .when { font-style: italic; color: var(--grey); font-size: 9.5pt; }
+  .bar { margin: 0 6pt; color: var(--grey); }
+  .project { margin-bottom: 6pt; break-inside: avoid; }
+  .project .kind { font-style: italic; color: var(--grey); }
+  .project .link { font-size: 9.5pt; margin-left: 4pt; }
+  .stack { font-size: 8.5pt; color: var(--grey); margin-top: 1pt; }
+  .stack b { color: var(--grey); }
+  .small-link { font-size: 9.5pt; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="name">LEIF SOLIVA</div>
+  <div class="title">Full-Stack Developer <span class="sep">·</span> AI Builder <span class="sep">·</span> Operations Leader</div>
+  <div class="contact">
+    <a href="mailto:leif@forgeaiagent.com">leif@forgeaiagent.com</a><span class="sep">|</span><a href="https://linkedin.com/in/leifsoliva">linkedin.com/in/leifsoliva</a><span class="sep">|</span><a href="https://github.com/silv-tech">github.com/silv-tech</a><br>
+    <a href="https://dlvasolutions.com/portfolio">dlvasolutions.com/portfolio</a><span class="sep">|</span>Philippines <span class="sep">·</span> Available for remote work worldwide
+  </div>
+</div>
+
+<h2>Professional Summary</h2>
+<p>Full-stack developer and operations leader with 6+ years spanning software delivery, AI product development, and business operations. Architected, built, and deployed 8+ production systems end to end — multi-tenant SaaS platforms, AI automation tools, cross-platform management software, and live e-commerce stores — handling frontend, backend, database, authentication, third-party APIs, and deployment without a team behind me. On the operations side, managed 30+ people and scaled monthly net sales from $40,000 to $200,000. Comfortable owning a product from first commit to profitable operation.</p>
+
+<h2>Key Highlights</h2>
+<ul>
+  <li><b>8+ products</b> &nbsp;—&nbsp; shipped from scratch and running in production for real businesses.</li>
+  <li><b>$40K → $200K</b> &nbsp;—&nbsp; monthly net sales (5x growth) driven as Operations Manager.</li>
+  <li><b>30+ person team</b> &nbsp;—&nbsp; managed across hiring, training, KPI tracking, and workflow design.</li>
+  <li><b>AI/LLM specialist</b> &nbsp;—&nbsp; Claude and OpenAI API integrations, RAG systems, custom chatbots, and autonomous agents built for clients and for my own products.</li>
+  <li><b>Multi-platform delivery</b> &nbsp;—&nbsp; single codebases shipping as web, Electron desktop, and Capacitor mobile applications.</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+  <p><span class="label">Languages:</span>&nbsp; JavaScript, TypeScript, Python, SQL, HTML/CSS</p>
+  <p><span class="label">Frontend:</span>&nbsp; React, Next.js, Tailwind CSS, Vite, Responsive Design</p>
+  <p><span class="label">Backend &amp; Data:</span>&nbsp; Node.js, Express, Supabase, PostgreSQL, SQLite, REST APIs, JWT Auth, WebSockets</p>
+  <p><span class="label">AI &amp; Automation:</span>&nbsp; Claude API, OpenAI API, AI Chatbots, RAG Systems, Make, Zapier, n8n, Google Apps Script</p>
+  <p><span class="label">DevOps &amp; Platforms:</span>&nbsp; Git, Vercel, Railway, Netlify, Cloudflare, Electron, Capacitor, Linux</p>
+  <p><span class="label">Integrations:</span>&nbsp; Facebook Graph API, Messenger, Stripe, GCash, Brevo, Resend, Airtable, Socket.io, Google Places</p>
+  <p><span class="label">Business Tools:</span>&nbsp; Google Sheets, Docs &amp; Drive, Excel, Word, GoHighLevel, HubSpot, Notion, Slack, Canva, Calendly, Loom</p>
+  <p><span class="label">Leadership:</span>&nbsp; Team Management (30+), Operations Strategy, KPI Tracking, Project Management, Client Relations, Revenue Growth</p>
+</div>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+  <div class="role"><div><b>Founder / Full-Stack Developer</b><span class="bar">|</span>DLVASolutions / ForgeAI</div><div class="when">2024 – Present</div></div>
+  <ul>
+    <li>Founded and run a development agency delivering websites, web applications, and automation systems for clients across e-commerce, hospitality, and services.</li>
+    <li>Built and shipped 8+ products from scratch, including WhiteLabelAI (multi-tenant SaaS), Dark Sync (web/desktop/mobile management system), and multiple live e-commerce stores.</li>
+    <li>Launched ForgeAI, an autonomous cold-email outreach platform that sources leads by city and business type, scrapes each prospect's website, generates personalized copy via the Claude API, and manages automated follow-up sequences.</li>
+    <li>Own the full delivery lifecycle: client discovery and scoping, UI/UX design, architecture, development, deployment, and ongoing maintenance of live production systems.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="role"><div><b>Operations Manager</b><span class="bar">|</span>Pink Models Agency</div><div class="when">2024 – 2025</div></div>
+  <ul>
+    <li>Managed daily operations for a team of 30+, covering hiring, onboarding, training, and performance management.</li>
+    <li>Scaled monthly net sales from $40,000 to $200,000 — 5x growth — through workflow redesign, KPI tracking, and tighter operational discipline.</li>
+    <li>Built internal systems and reporting processes that gave leadership clear visibility into performance metrics and bottlenecks.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="role"><div><b>Project Manager</b><span class="bar">|</span>Taskapp AI</div><div class="when">2021 – 2024</div></div>
+  <ul>
+    <li>Ran talent-sourcing projects end to end, from requirements gathering through final delivery.</li>
+    <li>Designed and managed candidate pipelines, verification workflows, and coordinated multi-channel email outreach campaigns.</li>
+    <li>Served as primary client contact, maintaining data accuracy and consistently hitting delivery deadlines across concurrent projects.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="role"><div><b>AI Client Solutions Manager</b><span class="bar">|</span>Adaya AI</div><div class="when">2021 – 2023</div></div>
+  <ul>
+    <li>Worked directly with business clients to design and deploy custom AI chatbots and virtual assistants.</li>
+    <li>Built and structured knowledge bases, trained and fine-tuned model responses, and validated that each deployment solved the client's actual operational problem.</li>
+    <li>Managed client onboarding and provided ongoing technical support and iteration post-launch.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="role"><div><b>Customer Service Representative</b><span class="bar">|</span>Appointment Setting</div><div class="when">2020 – 2021</div></div>
+  <ul>
+    <li>Handled high-volume inbound and outbound calls, booking appointments and resolving customer issues while maintaining detailed records.</li>
+    <li>Developed the communication discipline and organizational habits that carried into later client-facing and leadership roles.</li>
+  </ul>
+</div>
+
+<h2>Selected Projects</h2>
+
+<div class="project">
+  <p><b>WhiteLabelAI</b> &nbsp;—&nbsp; <span class="kind">SaaS Platform · Multi-Tenant, AI-Powered</span></p>
+  <p>White-label AI chatbot platform for agencies. Bots are custom-trained on PDFs, raw text, or scraped URLs, then deployed as embeddable widgets or Facebook Messenger integrations. Multi-tenant architecture with JWT authentication.</p>
+  <p class="stack"><b>Stack:</b> Next.js, Express, Supabase, Claude API, Facebook Graph API, Railway</p>
+</div>
+
+<div class="project">
+  <p><b>Dark Sync</b> &nbsp;—&nbsp; <span class="kind">Management System · Web + Desktop + Mobile</span></p>
+  <p>Internet cafe management system covering QR member registration, session tracking, point-of-sale, food ordering, battle pass, tournaments, analytics, and P&amp;L reporting. Ships from one codebase as a web app, Electron desktop app, and Capacitor mobile app.</p>
+  <p class="stack"><b>Stack:</b> React, Express, SQLite, Socket.io, Electron, Capacitor</p>
+</div>
+
+<div class="project">
+  <p><b>ForgeAI / AgentForge</b> &nbsp;—&nbsp; <span class="kind">AI Automation · Cold Email Outreach</span><a class="link" href="https://forgeaiagent.com">forgeaiagent.com</a></p>
+  <p>Automated outreach system for agencies. Scouts leads by city and business type, uses AI to write personalized emails grounded in each prospect's actual website content, sends them automatically, and manages follow-up sequences.</p>
+  <p class="stack"><b>Stack:</b> Node.js, Claude API, Google Places API, Railway</p>
+</div>
+
+<div class="project">
+  <p><b>Job Finder</b> &nbsp;—&nbsp; <span class="kind">AI Chrome Extension · Auto-Apply</span></p>
+  <p>Chrome extension that scans job boards, matches listings against the user's skills using AI, writes personalized applications answering every employer question, and submits them. Supports one-click apply and full auto-pilot mode.</p>
+  <p class="stack"><b>Stack:</b> Chrome Extension, Next.js, Claude API, Railway</p>
+</div>
+
+<div class="project">
+  <p><b>H.U.B: Hanap.Usap.Build</b> &nbsp;—&nbsp; <span class="kind">E-Commerce · 150+ Products</span><a class="link" href="https://www.hanapusapbuild.store">www.hanapusapbuild.store</a></p>
+  <p>PC builder storefront with a 150+ product catalog, GCash and bank checkout, delivery integration, and customer accounts. Built from scratch with no templates.</p>
+  <p class="stack"><b>Stack:</b> HTML/CSS/JS, GCash, Inventory Management</p>
+</div>
+
+<div class="project">
+  <p><b>DCTE: Davao Computer Trade-in Express</b> &nbsp;—&nbsp; <span class="kind">E-Commerce · Live Store</span><a class="link" href="https://dctestore.com">dctestore.com</a></p>
+  <p>E-commerce platform for a PC shop featuring a product catalog, cart, payment integration, loyalty rewards, and a trade-in value estimator for used hardware.</p>
+  <p class="stack"><b>Stack:</b> HTML/CSS/JS, E-Commerce, Payments, Loyalty System</p>
+</div>
+
+<div class="project">
+  <p><b>Pickleball Court Booking</b> — court reservation platform with real-time availability, online booking, player community features, and a management dashboard.</p>
+</div>
+
+<div class="project">
+  <p><b>DLVASolutions</b> — agency site for web development, AI automation, and VA training. Custom dark theme, responsive, hand-coded from scratch. <a class="small-link" href="https://dlvasolutions.com">dlvasolutions.com</a></p>
+</div>
+
+<h2>Education</h2>
+<div class="job">
+  <div class="role"><div><b>BS Information Technology</b><span class="bar">|</span>Ateneo de Davao University</div><div class="when">2016 – 2020</div></div>
+  <p>Coursework in programming, networking, database management, and information systems; completed a capstone system.</p>
+</div>
+
+</body>
+</html>
