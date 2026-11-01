@@ -57,25 +57,27 @@
 </div>
 
 <h2>Professional Summary</h2>
-<p>Full-stack developer and operations leader with 6+ years spanning software delivery, AI product development, and business operations. Architected, built, and deployed 8+ production systems end to end, including multi-tenant SaaS platforms, AI automation tools, cross-platform management software, and live e-commerce stores. Handled frontend, backend, database, authentication, third-party APIs, and deployment without a team behind me. On the operations side, managed 30+ people and scaled monthly net sales from $40,000 to $200,000. Comfortable owning a product from first commit to profitable operation.</p>
+<p>Full-stack developer and operations leader with 6+ years spanning software delivery, AI product development, and business operations. Architected, built, and deployed 9+ production systems end to end, including a computer-vision video platform, multi-tenant SaaS platforms, AI automation tools, cross-platform management software, and live e-commerce stores. Handled frontend, backend, database, authentication, third-party APIs, and deployment without a team behind me. On the operations side, managed 30+ people and scaled monthly net sales from $40,000 to $200,000. Comfortable owning a product from first commit to profitable operation.</p>
 
 <h2>Key Highlights</h2>
 <ul>
-  <li><b>8+ products:</b> shipped from scratch and running in production for real businesses.</li>
+  <li><b>9+ products:</b> shipped from scratch and running in production for real businesses.</li>
   <li><b>$40K → $200K:</b> monthly net sales (5x growth) driven as Operations Manager.</li>
   <li><b>30+ person team:</b> managed across hiring, training, KPI tracking, and workflow design.</li>
   <li><b>AI/LLM specialist:</b> Claude and OpenAI API integrations, RAG systems, custom chatbots, and autonomous agents built for clients and for my own products.</li>
   <li><b>Multi-platform delivery:</b> single codebases shipping as web, Electron desktop, and Capacitor mobile applications.</li>
+  <li><b>Computer vision &amp; video:</b> built RallyCam, an edge-to-cloud recording platform that cuts highlight clips on site and delivers them to players in about 8 seconds.</li>
 </ul>
 
 <h2>Technical Skills</h2>
 <div class="skills">
   <p><span class="label">Languages:</span>&nbsp; JavaScript, TypeScript, Python, SQL, HTML/CSS</p>
-  <p><span class="label">Frontend:</span>&nbsp; React, Next.js, Tailwind CSS, Vite, Responsive Design</p>
-  <p><span class="label">Backend &amp; Data:</span>&nbsp; Node.js, Express, Supabase, PostgreSQL, SQLite, REST APIs, JWT Auth, WebSockets</p>
+  <p><span class="label">Frontend:</span>&nbsp; React, Next.js, Tailwind CSS, Vite, Responsive Design, PWA / Offline-First</p>
+  <p><span class="label">Backend &amp; Data:</span>&nbsp; Node.js, Express, Supabase, PostgreSQL, SQLite, REST APIs, JWT Auth, OAuth (PKCE), WebSockets, S3/R2 Object Storage, Multi-Tenant Architecture, RBAC, Rate Limiting, Monorepos</p>
   <p><span class="label">AI &amp; Automation:</span>&nbsp; Claude API, OpenAI API, AI Chatbots, RAG Systems, Make, Zapier, n8n, Google Apps Script</p>
-  <p><span class="label">DevOps &amp; Platforms:</span>&nbsp; Git, Vercel, Railway, Netlify, Cloudflare, Electron, Capacitor, Linux</p>
-  <p><span class="label">Integrations:</span>&nbsp; Facebook Graph API, Messenger, Stripe, GCash, Brevo, Resend, Airtable, Socket.io, Google Places</p>
+  <p><span class="label">Video, Vision &amp; Edge:</span>&nbsp; ffmpeg, RTSP/ONVIF IP Cameras, RTMP Live Streaming, TensorFlow.js Pose Detection, Camera Calibration, Edge Agents, Hardware Encoding (QSV/NVENC)</p>
+  <p><span class="label">DevOps &amp; Platforms:</span>&nbsp; Git, Vercel, Railway, Netlify, Cloudflare R2, Docker, Electron, Capacitor, Android, Linux, Automated Testing, Backups &amp; Disaster Recovery, Security Headers / CSP</p>
+  <p><span class="label">Integrations:</span>&nbsp; Facebook Graph API, Messenger, Stripe, GCash, Xendit, Google OAuth, Brevo, Resend, Airtable, Socket.io, Google Places</p>
   <p><span class="label">Business Tools:</span>&nbsp; Google Sheets, Docs &amp; Drive, Excel, Word, GoHighLevel, HubSpot, Notion, Slack, Canva, Calendly, Loom</p>
   <p><span class="label">Leadership:</span>&nbsp; Team Management (30+), Operations Strategy, KPI Tracking, Project Management, Client Relations, Revenue Growth</p>
 </div>
@@ -86,7 +88,8 @@
   <div class="role"><div><b>Founder / Full-Stack Developer</b><span class="bar">|</span>DLVASolutions / ForgeAI</div><div class="when">2024 – Present</div></div>
   <ul>
     <li>Founded and run a development agency delivering websites, web applications, and automation systems for clients across e-commerce, hospitality, and services.</li>
-    <li>Built and shipped 8+ products from scratch, including WhiteLabelAI (multi-tenant SaaS), Dark Sync (web/desktop/mobile management system), and multiple live e-commerce stores.</li>
+    <li>Built and shipped 9+ products from scratch, including RallyCam (computer-vision video platform), WhiteLabelAI (multi-tenant SaaS), Dark Sync (web/desktop/mobile management system), and multiple live e-commerce stores.</li>
+    <li>Built RallyCam, a computer-vision court recording and booking platform live for pickleball clubs in the Philippines, spanning an on-site edge agent, a cloud API, a React PWA, and online payments.</li>
     <li>Launched ForgeAI, an autonomous cold-email outreach platform that sources leads by city and business type, scrapes each prospect's website, generates personalized copy via the Claude API, and manages automated follow-up sequences.</li>
     <li>Own the full delivery lifecycle: client discovery and scoping, UI/UX design, architecture, development, deployment, and ongoing maintenance of live production systems.</li>
   </ul>
@@ -128,6 +131,12 @@
 </div>
 
 <h2>Selected Projects</h2>
+
+<div class="project">
+  <p><b>RallyCam</b><span class="bar">|</span><span class="kind">Computer Vision · Video Platform</span><a class="link" href="https://rallycam.ph">rallycam.ph</a></p>
+  <p>Court recording for pickleball clubs. A player scans a QR sign, taps record, and their best rally reaches their phone in about 8 seconds; the full match is emailed afterward. An on-site mini PC keeps a rolling 4-hour buffer and cuts clips locally, so only the finished highlight is uploaded. Six products on one platform: recording, booking with online payments, an open-play queue, owner and venue dashboards, and a courtside tablet.</p>
+  <p class="stack"><b>Stack:</b> React, Node.js, SQLite, ffmpeg, TensorFlow.js, WebSockets, Cloudflare R2, Xendit, Railway</p>
+</div>
 
 <div class="project">
   <p><b>WhiteLabelAI</b><span class="bar">|</span><span class="kind">SaaS Platform · Multi-Tenant, AI-Powered</span></p>

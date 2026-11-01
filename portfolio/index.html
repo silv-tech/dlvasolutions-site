@@ -14,7 +14,7 @@
   <meta property="og:image" content="https://dlvasolutions.com/portfolio/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
-  <meta property="og:image:alt" content="Leif Soliva, full-stack developer and operations leader: 8+ products shipped, 5x revenue growth, 30+ team managed">
+  <meta property="og:image:alt" content="Leif Soliva, full-stack developer and operations leader: 9+ products shipped, 5x revenue growth, 30+ team managed">
   <meta name="author" content="Aldonn Leif Soliva">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
@@ -731,6 +731,15 @@
       <p class="section-subtitle">Every project below was architected, developed, and deployed by me. They're live systems powering real businesses.</p>
     </div>
     <div class="grid-2">
+      <div class="project-card fade-in" id="p-rallycam"><img class="project-img" src="img/rallycam-screenshot.jpg" alt="RallyCam landing page for booking pickleball courts in the Philippines" loading="lazy"><div class="project-body">
+        <div class="project-type">Computer Vision &amp; Video Platform</div>
+        <h3>RallyCam</h3>
+        <div class="project-highlight">8-Second Highlights</div>
+        <p>Court recording for pickleball clubs in the Philippines. A player scans the QR sign, taps record, and their best rally is on their phone in about 8 seconds, while the full match is emailed afterward. A mini PC at the venue keeps a rolling 4-hour buffer and cuts clips on site, so only the finished highlight ever leaves the building. Grew into six products on one platform: recording, court booking with online payments, an open-play queue, owner and venue dashboards, and a courtside tablet.</p>
+        <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">ffmpeg</span><span class="tech-tag">TensorFlow.js</span><span class="tech-tag">SQLite</span><span class="tech-tag">WebSockets</span><span class="tech-tag">Cloudflare R2</span></div>
+        <div class="project-links"><a href="https://rallycam.ph" target="_blank" rel="noopener">View Live &#8599;</a><a href="#cs-rallycam">Read case study &darr;</a></div>
+      </div></div>
+
       <div class="project-card fade-in" id="p-whitelabelai"><img class="project-img" src="../whitelabelai-screenshot.jpg" alt="WhiteLabelAI" loading="lazy"><div class="project-body">
         <div class="project-type">SaaS Platform</div>
         <h3>WhiteLabelAI</h3>
@@ -808,13 +817,63 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Case Studies</div>
-      <h2 class="section-title">Two builds, start to finish.</h2>
+      <h2 class="section-title">Three builds, start to finish.</h2>
       <p class="section-subtitle">The idea, how it works, and the engineering problems I had to solve along the way.</p>
     </div>
 
+    <article class="case fade-in" id="cs-rallycam">
+      <div class="case-hero">
+        <div class="case-kicker">Case Study 01 / RallyCam</div>
+        <h3 class="case-hook">Your best rally, on your phone <em>before you finish your water.</em></h3>
+        <p class="case-lede">Most clubs film games on a phone propped against a bag, and the file reaches the group chat next week if it reaches it at all. RallyCam puts a camera on the court and a QR sign on the fence. Scan, tap record, play. Any point a player tapped "Clip that!" on is watchable in about eight seconds, while they are still standing on the court.</p>
+      </div>
+      <dl class="case-glance">
+        <div><dt>My role</dt><dd>Solo: product, design, code, deploy</dd></div>
+        <div><dt>Type</dt><dd>Computer vision video platform</dd></div>
+        <div><dt>Core stack</dt><dd>Node.js, React, ffmpeg, TensorFlow.js</dd></div>
+        <div><dt>Status</dt><dd>Live at rallycam.ph</dd></div>
+      </dl>
+      <div class="case-flow">
+        <div class="flow-title">From a sign on the fence to a clip in the group chat</div>
+        <ol class="flow">
+          <li><strong>Scan</strong><span>A QR sign on the court opens the recorder, no app to install</span></li>
+          <li><strong>Record</strong><span>One tap starts it, one tap ends it, nothing for staff to do</span></li>
+          <li><strong>Clip that</strong><span>Any point tapped is cut on site in about 8 seconds</span></li>
+          <li><strong>Analyze</strong><span>Pose detection measures court position and kitchen time</span></li>
+          <li><strong>Deliver</strong><span>Highlights and the full match are emailed to everyone playing</span></li>
+          <li><strong>Expire</strong><span>Clips delete themselves on a retention timer the email promises</span></li>
+        </ol>
+      </div>
+      <div class="case-body">
+        <div class="case-block">
+          <h4>The spark</h4>
+          <p>Players want the one point they will talk about for a week, and they want it now, not next Tuesday. The obvious build is to upload the match and cut it in the cloud. On a Philippine venue uplink that is the one thing that cannot work: a 90-minute match is gigabytes, and the clip arrives long after everyone has gone home.</p>
+          <p>So the architecture had to answer a harder question than "how do we record a game." It had to answer "how does a clip get to a phone in seconds, over a connection that slow."</p>
+        </div>
+        <div class="case-block">
+          <h4>Where it landed</h4>
+          <p>It grew from one feature into six products on one platform: court recording, a booking marketplace with online payments, RallyQue for running open play queues and ladders, an owner portal, a courtside tablet, and venue and admin dashboards.</p>
+          <p>Clubs get a reason for players to book their courts over the ones down the road, and the only thing the front desk does is hang the sign.</p>
+        </div>
+        <div class="case-block case-hard">
+          <h4>The hard parts</h4>
+          <div class="hard-grid">
+            <div class="hard-card"><b>The video never leaves the building</b><p>A mini PC at the venue records into two-second segments and keeps a rolling four-hour buffer. Cutting a clip is a file operation, not a video operation, so it costs milliseconds instead of minutes, and only the finished highlight is ever uploaded. The box dials out to the server over a WebSocket, so nothing has to be opened on the club's router either. A new venue is plugged in rather than provisioned.</p></div>
+            
+            <div class="hard-card"><b>A queue that survives the wifi</b><p>RallyQue runs 300 players through a day on venue wifi. Its matcher is a pure rules engine with no database, no clock, and no network, so the identical code runs on the server and offline in the organiser's browser. When the internet hiccups, the board keeps working instead of sending the announcer back to shouting.</p></div>
+            <div class="hard-card"><b>Measured, not assumed</b><p>Rally detection was scored at 88.4% recall against human verdicts on a real 27-minute match. The encoder auto-detects Quick Sync, NVENC, or AMF, because software-encoding a 90-minute match on a low-power box runs slower than real time and the venue never catches up. Backed by 94 unit suites, an end-to-end suite that inspects real video with ffprobe, and a disaster-recovery drill that deletes the database and restores it.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-foot">
+        <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">SQLite</span><span class="tech-tag">ffmpeg</span><span class="tech-tag">TensorFlow.js</span><span class="tech-tag">WebSockets</span><span class="tech-tag">Cloudflare R2</span><span class="tech-tag">Xendit</span><span class="tech-tag">Railway</span></div>
+        <div class="project-links"><a href="https://rallycam.ph" target="_blank" rel="noopener">View Live &#8599;</a><a href="#p-rallycam">Back to project &uarr;</a></div>
+      </div>
+    </article>
+
     <article class="case fade-in" id="cs-forgeai">
       <div class="case-hero">
-        <div class="case-kicker">Case Study 01 / ForgeAI</div>
+        <div class="case-kicker">Case Study 02 / ForgeAI</div>
         <h3 class="case-hook">What if a cold email arrived with <em>their new website already built?</em></h3>
         <p class="case-lede">Most cold outreach asks for attention before giving anything. ForgeAI flips that. It finds local businesses that need a better web presence, builds each one a custom demo site with AI, and leads with the finished result.</p>
       </div>
@@ -863,7 +922,7 @@
 
     <article class="case fade-in" id="cs-dcte">
       <div class="case-hero">
-        <div class="case-kicker">Case Study 02 / DCTE</div>
+        <div class="case-kicker">Case Study 03 / DCTE</div>
         <h3 class="case-hook">A neighborhood PC shop, running like <em>a tech company.</em></h3>
         <p class="case-lede">Davao Computer Trade-in Express sells new and second-hand parts. The owner needed more than a template store: a system for the parts of the business templates don't cover, like trade-ins, loyalty rewards, and listing hundreds of components.</p>
       </div>
@@ -983,20 +1042,31 @@
       <p class="section-subtitle">Every skill below links to the projects where I used it in production. Click one to jump to it.</p>
     </div>
     <div class="skill-category fade-in"><div class="skill-category-title">Frontend</div><div class="proof-grid">
-      <div class="proof-row"><span class="proof-skill">JavaScript</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-darksync">Dark Sync</a><a href="#p-forgeai">ForgeAI</a><a href="#p-dcte">DCTE</a><a href="#p-nocturne">Nocturne</a></span></div>
-            <div class="proof-row"><span class="proof-skill">React</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a></span></div>
+      <div class="proof-row"><span class="proof-skill">JavaScript</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-darksync">Dark Sync</a><a href="#p-forgeai">ForgeAI</a><a href="#p-dcte">DCTE</a><a href="#p-nocturne">Nocturne</a><a href="#p-rallycam">RallyCam</a></span></div>
+            <div class="proof-row"><span class="proof-skill">React</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a><a href="#p-rallycam">RallyCam</a></span></div>
       <div class="proof-row"><span class="proof-skill">Next.js</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a></span></div>
       <div class="proof-row"><span class="proof-skill">HTML/CSS, responsive</span><span class="proof-projects"><a href="#p-dcte">DCTE</a><a href="#p-hub">H.U.B</a><a href="#p-pickleball">Pickleball</a><a href="#p-dlva">DLVASolutions</a></span></div>
+      <div class="proof-row"><span class="proof-skill">PWA, offline-first UI</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Vite</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
           </div></div>
     <div class="skill-category fade-in"><div class="skill-category-title">Backend & Data</div><div class="proof-grid">
-      <div class="proof-row"><span class="proof-skill">Node.js / Express</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-darksync">Dark Sync</a><a href="#p-forgeai">ForgeAI</a><a href="#p-dcte">DCTE</a><a href="#p-nocturne">Nocturne</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Node.js / Express</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-darksync">Dark Sync</a><a href="#p-forgeai">ForgeAI</a><a href="#p-dcte">DCTE</a><a href="#p-nocturne">Nocturne</a><a href="#p-rallycam">RallyCam</a></span></div>
       <div class="proof-row"><span class="proof-skill">Supabase / PostgreSQL</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a></span></div>
       <div class="proof-row"><span class="proof-skill">Redis</span><span class="proof-projects"><a href="#p-nocturne">Nocturne</a></span></div>
-      <div class="proof-row"><span class="proof-skill">SQLite</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a></span></div>
-      <div class="proof-row"><span class="proof-skill">WebSockets / Socket.io</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a></span></div>
-      <div class="proof-row"><span class="proof-skill">Auth: JWT, bcrypt, sessions</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-dcte">DCTE</a><a href="#p-forgeai">ForgeAI</a></span></div>
-      <div class="proof-row"><span class="proof-skill">REST API design</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-dcte">DCTE</a><a href="#p-nocturne">Nocturne</a></span></div>
-      <div class="proof-row"><span class="proof-skill">Automated testing</span><span class="proof-projects"><a href="#p-nocturne">Nocturne</a></span></div>
+      <div class="proof-row"><span class="proof-skill">SQLite</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">WebSockets / Socket.io</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Auth: JWT, bcrypt, sessions</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-dcte">DCTE</a><a href="#p-forgeai">ForgeAI</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">REST API design</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-dcte">DCTE</a><a href="#p-nocturne">Nocturne</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Automated testing</span><span class="proof-projects"><a href="#p-nocturne">Nocturne</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Object storage (S3 / R2)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Background jobs, retries, alerting</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Backups & disaster recovery</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Multi-tenant architecture</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Role-based access control</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Rate limiting, abuse controls</span><span class="proof-projects"><a href="#p-forgeai">ForgeAI</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Security headers, CSP</span><span class="proof-projects"><a href="#p-forgeai">ForgeAI</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">PDF generation</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Monorepo (npm workspaces)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
     </div></div>
     <div class="skill-category fade-in"><div class="skill-category-title">AI & Automation</div><div class="proof-grid">
       <div class="proof-row"><span class="proof-skill">Claude API</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-forgeai">ForgeAI</a><a href="#p-dcte">DCTE</a></span></div>
@@ -1005,20 +1075,39 @@
       <div class="proof-row"><span class="proof-skill">Web scraping</span><span class="proof-projects"><a href="#p-forgeai">ForgeAI</a><a href="#p-nocturne">Nocturne</a></span></div>
       <div class="proof-row"><span class="proof-skill">Email automation</span><span class="proof-projects"><a href="#p-forgeai">ForgeAI</a></span></div>
     </div></div>
+    <div class="skill-category fade-in"><div class="skill-category-title">Video, Vision & Edge</div><div class="proof-grid">
+      <div class="proof-row"><span class="proof-skill">ffmpeg video pipelines</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">RTSP / ONVIF IP cameras</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">RTMP live streaming</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Pose detection (TensorFlow.js)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Camera calibration, court geometry</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Edge computing, on-site agents</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Hardware encoding (QSV / NVENC)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Over-the-air device updates</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+    </div></div>
     <div class="skill-category fade-in"><div class="skill-category-title">Platforms & Integrations</div><div class="proof-grid">
-      <div class="proof-row"><span class="proof-skill">Railway</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-forgeai">ForgeAI</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Railway</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a><a href="#p-forgeai">ForgeAI</a><a href="#p-rallycam">RallyCam</a></span></div>
       <div class="proof-row"><span class="proof-skill">Docker</span><span class="proof-projects"><a href="#p-nocturne">Nocturne</a></span></div>
       <div class="proof-row"><span class="proof-skill">Discord bots</span><span class="proof-projects"><a href="#p-nocturne">Nocturne</a></span></div>
       <div class="proof-row"><span class="proof-skill">Netlify</span><span class="proof-projects"><a href="#p-dlva">DLVASolutions</a></span></div>
-      <div class="proof-row"><span class="proof-skill">Cloudflare</span><span class="proof-projects"><a href="#p-forgeai">ForgeAI</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Cloudflare</span><span class="proof-projects"><a href="#p-forgeai">ForgeAI</a><a href="#p-rallycam">RallyCam</a></span></div>
       <div class="proof-row"><span class="proof-skill">Electron (desktop)</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a></span></div>
       <div class="proof-row"><span class="proof-skill">Capacitor (mobile)</span><span class="proof-projects"><a href="#p-darksync">Dark Sync</a></span></div>
       <div class="proof-row"><span class="proof-skill">Facebook Graph / Messenger</span><span class="proof-projects"><a href="#p-whitelabelai">WhiteLabelAI</a></span></div>
       <div class="proof-row"><span class="proof-skill">Google Places API</span><span class="proof-projects"><a href="#p-forgeai">ForgeAI</a></span></div>
       <div class="proof-row"><span class="proof-skill">GCash payments</span><span class="proof-projects"><a href="#p-hub">H.U.B</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Xendit payments</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Google OAuth (PKCE)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Resend (transactional email)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Android (native wrapper)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">QR code generation</span><span class="proof-projects"><a href="#p-dcte">DCTE</a><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Geolocation, geofencing</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Leaflet maps</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Text to speech</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
+      <div class="proof-row"><span class="proof-skill">Email deliverability (SPF/DKIM)</span><span class="proof-projects"><a href="#p-rallycam">RallyCam</a></span></div>
     </div></div>
     <div class="skill-category fade-in"><div class="skill-category-title">Leadership</div><div class="skill-tags"><span class="skill-tag"><a href="#experience" style="color:inherit;text-decoration:none;">Team Management (30+)</a></span><span class="skill-tag">Ops Strategy</span><span class="skill-tag">KPI Tracking</span><span class="skill-tag">Project Mgmt</span><span class="skill-tag">Client Relations</span><span class="skill-tag">Revenue Growth</span></div></div>
-    <div class="skill-category also-used fade-in"><div class="skill-category-title">Also worked with</div><p>Tools I have also used, beyond the projects above.</p><div class="skill-tags"><span class="skill-tag">TypeScript</span><span class="skill-tag">Chrome Extensions</span><span class="skill-tag">Python</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">Tailwind CSS</span><span class="skill-tag">Vite</span><span class="skill-tag">Vercel</span><span class="skill-tag">Make</span><span class="skill-tag">Zapier</span><span class="skill-tag">n8n</span><span class="skill-tag">Apps Script</span><span class="skill-tag">Stripe</span><span class="skill-tag">Brevo</span><span class="skill-tag">Airtable</span><span class="skill-tag">Git</span><span class="skill-tag">Linux</span><span class="skill-tag">Google Sheets</span><span class="skill-tag">Google Docs</span><span class="skill-tag">Google Drive</span><span class="skill-tag">Excel</span><span class="skill-tag">Word</span><span class="skill-tag">GoHighLevel</span><span class="skill-tag">HubSpot</span><span class="skill-tag">Notion</span><span class="skill-tag">Slack</span><span class="skill-tag">Canva</span><span class="skill-tag">Calendly</span><span class="skill-tag">Loom</span></div></div>
+    <div class="skill-category also-used fade-in"><div class="skill-category-title">Also worked with</div><p>Tools I have also used, beyond the projects above.</p><div class="skill-tags"><span class="skill-tag">TypeScript</span><span class="skill-tag">Chrome Extensions</span><span class="skill-tag">Python</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">Tailwind CSS</span><span class="skill-tag">Vercel</span><span class="skill-tag">Make</span><span class="skill-tag">Zapier</span><span class="skill-tag">n8n</span><span class="skill-tag">Apps Script</span><span class="skill-tag">Stripe</span><span class="skill-tag">Brevo</span><span class="skill-tag">Airtable</span><span class="skill-tag">Git</span><span class="skill-tag">Linux</span><span class="skill-tag">Google Sheets</span><span class="skill-tag">Google Docs</span><span class="skill-tag">Google Drive</span><span class="skill-tag">Excel</span><span class="skill-tag">Word</span><span class="skill-tag">GoHighLevel</span><span class="skill-tag">HubSpot</span><span class="skill-tag">Notion</span><span class="skill-tag">Slack</span><span class="skill-tag">Canva</span><span class="skill-tag">Calendly</span><span class="skill-tag">Loom</span></div></div>
   </div>
 </section>
 
@@ -1033,7 +1122,7 @@
       <p class="section-subtitle">Every role taught me how to deliver.</p>
     </div>
     <p class="timeline-note fade-in"><strong style="color:#1a1a1a;">About the overlapping dates:</strong> Taskapp AI was a part-time role I held alongside my full-time positions, first at Adaya AI and then at Pink Models Agency. DLVASolutions started as a part-time build in 2024 and became my full-time focus in 2025.</p>
-    <div class="timeline-item fade-in"><div class="timeline-date">2024 - Present<br><span class="timeline-type">Full-time since 2025</span></div><div class="timeline-content"><h4>DLVASolutions / ForgeAI</h4><div class="timeline-role">Founder / Full-Stack Developer</div><p>Founded a dev agency building websites, web apps, and automation systems for clients. Built and shipped 8+ products from scratch including WhiteLabelAI, Dark Sync, and multiple e-commerce stores. Also built and launched ForgeAI, an automated cold email outreach platform that finds leads by location, scrapes their websites, and uses AI to write personalized emails for each prospect. Handle everything end-to-end: talking to clients, designing, coding, deploying, and maintaining live systems.</p><span class="timeline-highlight">8+ products shipped</span></div></div>
+    <div class="timeline-item fade-in"><div class="timeline-date">2024 - Present<br><span class="timeline-type">Full-time since 2025</span></div><div class="timeline-content"><h4>DLVASolutions / ForgeAI</h4><div class="timeline-role">Founder / Full-Stack Developer</div><p>Founded a dev agency building websites, web apps, and automation systems for clients. Built and shipped 9+ products from scratch including RallyCam, WhiteLabelAI, Dark Sync, and multiple e-commerce stores. Also built and launched ForgeAI, an automated cold email outreach platform that finds leads by location, scrapes their websites, and uses AI to write personalized emails for each prospect, and RallyCam, a court recording and booking platform for pickleball clubs that cuts highlight clips on site and has players watching them before they leave the court. Handle everything end-to-end: talking to clients, designing, coding, deploying, and maintaining live systems.</p><span class="timeline-highlight">9+ products shipped</span></div></div>
     <div class="timeline-item fade-in"><div class="timeline-date">2024 - 2025<br><span class="timeline-type">Full-time</span></div><div class="timeline-content"><h4>Pink Models Agency</h4><div class="timeline-role">Operations Manager</div><p>Managed day-to-day operations for a team of 30+ people. Tracked performance metrics, built internal workflows, and helped scale the business from $40,000 to $200,000 in monthly net sales. Handled hiring, training, and keeping everything running smoothly.</p><span class="timeline-highlight">$40K to $200K/month (5x growth)</span></div></div>
     <div class="timeline-item fade-in"><div class="timeline-date">2021 - 2024<br><span class="timeline-type">Part-time</span></div><div class="timeline-content"><h4>Taskapp AI</h4><div class="timeline-role">Project Manager</div><p>Ran talent sourcing projects from start to finish. Set up candidate pipelines, handled verification, coordinated email outreach campaigns, and made sure deliverables hit deadlines. Worked closely with clients to keep data accurate and projects on track.</p><span class="timeline-highlight">3 years AI-adjacent PM</span></div></div>
     <div class="timeline-item fade-in"><div class="timeline-date">2021 - 2023<br><span class="timeline-type">Full-time</span></div><div class="timeline-content"><h4>Adaya AI</h4><div class="timeline-role">AI Client Solutions Manager</div><p>Worked directly with business clients to build custom AI chatbots and assistants. Set up knowledge bases, trained and fine-tuned AI responses, and made sure each bot actually solved the client's problem. Handled onboarding and ongoing support.</p><span class="timeline-highlight">Custom AI for clients</span></div></div>
@@ -1058,6 +1147,7 @@
           <li>Full-stack: frontend, backend, database, deployment</li>
           <li>AI/LLM: chatbots, RAG systems, API integrations</li>
           <li>Multi-platform: web, desktop (Electron), mobile (Capacitor)</li>
+          <li>Video &amp; vision: ffmpeg pipelines, pose detection, edge devices</li>
           <li>Operations: scaled team of 30+, $200K/mo revenue</li>
           <li>Self-directed: ships independently, communicates proactively</li>
         </ul>
@@ -1068,7 +1158,7 @@
           <div>
             <h3>Leif Soliva</h3>
             <div class="role">Full-Stack Developer / Operations Leader / AI Builder</div>
-            <p>BSIT. 8+ products shipped. 30+ people managed. $200K/mo revenue scaled.</p>
+            <p>BSIT. 9+ products shipped. 30+ people managed. $200K/mo revenue scaled.</p>
           </div>
         </div>
         <div style="margin-top:1rem; padding:1rem; background:#f4f4f4; border-radius:var(--radius-sm);">
